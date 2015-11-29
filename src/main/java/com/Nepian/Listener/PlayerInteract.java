@@ -1,5 +1,7 @@
 package com.Nepian.Listener;
 
+import org.bukkit.block.Block;
+import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
@@ -13,5 +15,12 @@ public class PlayerInteract implements Listener {
 		if (event.getAction() != Action.RIGHT_CLICK_BLOCK) {
 			return;
 		}
+
+		Player player = event.getPlayer();
+		Block block = event.getClickedBlock();
+
+		String blockString = block.toString();
+
+		player.sendMessage(blockString);
 	}
 }
