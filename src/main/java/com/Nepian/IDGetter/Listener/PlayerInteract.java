@@ -22,17 +22,11 @@ public class PlayerInteract implements Listener {
 		Player player = event.getPlayer();
 		Block block = event.getClickedBlock();
 
-		String blockType = block.getType().toString();
-		int blockTypeId = block.getTypeId();
-		byte blockData = block.getData();
-		
-		StringBuilder msg = new StringBuilder("");
-		
-		msg.append("ID: ").append(blockTypeId).append(":");
-		msg.append(blockData).append(", ");
-		msg.append(blockType);
+		String type = block.getType().toString();
+		int id = block.getTypeId();
+		byte data = block.getData();
 
-		player.sendMessage(msg.toString());
+		player.sendMessage(createIDMsg(id, data, type));
 	}
 	
 	@SuppressWarnings("deprecation")
@@ -50,16 +44,20 @@ public class PlayerInteract implements Listener {
 			return;
 		}
 		
-		String itemType = item.getType().toString();
-		int itemTypeId = item.getTypeId();
-		byte itemData = item.getData().getData();
+		String type = item.getType().toString();
+		int id = item.getTypeId();
+		byte data = item.getData().getData();
 		
+		player.sendMessage(createIDMsg(id, data, type));
+	}
+	
+	private static String createIDMsg(int id, byte data, String type) {
 		StringBuilder msg = new StringBuilder("");
 		
-		msg.append("ID: ").append(itemTypeId).append(":");
-		msg.append(itemData).append(", ");
-		msg.append(itemType);
+		msg.append("ID: ").append(id).append(":");
+		msg.append(data).append(", ");
+		msg.append(type);
 		
-		player.sendMessage(msg.toString());
+		return msg.toString();
 	}
 }
