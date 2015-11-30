@@ -3,7 +3,7 @@ package com.Nepian.IDGetter;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import com.Nepian.Listener.PlayerInteract;
+import com.Nepian.IDGetter.Listener.PlayerInteract;
 
 public class IDGetter extends JavaPlugin {
 
