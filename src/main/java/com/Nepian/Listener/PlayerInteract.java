@@ -19,8 +19,8 @@ public class PlayerInteract implements Listener {
 		Player player = event.getPlayer();
 		Block block = event.getClickedBlock();
 
-		String blockString = block.toString();
+		String blockType = block.getType().toString();
 
-		player.sendMessage(blockString);
+		player.sendMessage(blockType);
 	}
 }
