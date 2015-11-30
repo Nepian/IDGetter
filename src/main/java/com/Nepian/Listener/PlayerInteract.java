@@ -9,6 +9,7 @@ import org.bukkit.event.player.PlayerInteractEvent;
 
 public class PlayerInteract implements Listener {
 
+	@SuppressWarnings("deprecation")
 	@EventHandler
 	public static void onPlayerInteract(PlayerInteractEvent event) {
 
@@ -20,7 +21,15 @@ public class PlayerInteract implements Listener {
 		Block block = event.getClickedBlock();
 
 		String blockType = block.getType().toString();
+		int blockTypeId = block.getTypeId();
+		byte blockData = block.getData();
+		
+		StringBuilder msg = new StringBuilder("");
+		
+		msg.append("ID: ").append(blockTypeId).append(":");
+		msg.append(blockData).append(", ");
+		msg.append(blockType);
 
-		player.sendMessage(blockType);
+		player.sendMessage(msg.toString());
 	}
 }
